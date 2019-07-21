@@ -1,0 +1,31 @@
+body {
+    margin: 0;
+
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+}
+
+.characters {
+    background-image: url(/assets/site/mapblue.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 80vw;
+    height: 100vh;
+    justify-content: space-evenly;
+}
+
+.pictures {
+    float: left;
+    text-align: center;
+    height: 12vh;
+    width: 10vw;
+}
+
+.search {
+    background-color: #555;
+    width: 20vw;
+    height: 100vh;
+}

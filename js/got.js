@@ -1,21 +1,36 @@
-var userDatas;
-
-function getData(url, callbackFunc) {
-  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function getCharacters() {
-    if (this.readyState === 4 && this.status === 200) {
-      callbackFunc(this);
+const gotCharacters = {
+  data: [],
+  init() {
+    this.findAll();
+  },
+  findAll() {
+    const request = new XMLHttpRequest(); // ez egy szinkron művelet
+    request.onload = () => {
+      this.setData(request.responseText); // innentől kezdve lesz benne adat
+    };
+    // request.onerror = () => {
+    //   alert('Hiba a JSON fájl betöltésekor!');
+    // };
+    request.open('GET', '/json/got.json');
+    request.send();
+  },
+  setData(userData) {
+    this.data = JSON.parse(userData);
+    // console.log(this.data);
+    this.showAll();
+  },
+  showAll() {
+    let pictures = '';
+    for (let i = 0; i < this.data.length; i += 1) {
+      if (!this.data[i].dead && this.data[i].name !== 'Ned Stark') {
+        pictures += `<div class="pictures">
+                    <img src="${this.data[i].portrait}" alt="${this.data[i].name}">
+                    <div>${this.data[i].name}</div>
+                    </div>`;
+      }
+      document.querySelector('.characters').innerHTML = pictures;
     }
-  };
-  xhttp.open('GET', url, true);
-  xhttp.send();
-}
+  },
+};
 
-function successAjax(xhttp) {
-  userDatas = JSON.parse(xhttp.responseText);
-}
-
-getData('/json/aJsonFileodNeve.json', successAjax);
-
-// Live servert használd mindig!!!!!
-/* IDE ÍRD A FÜGGVÉNYEKET!!!!!! NE EBBE AZ EGY SORBA HANEM INNEN LEFELÉ! */
+gotCharacters.init();
