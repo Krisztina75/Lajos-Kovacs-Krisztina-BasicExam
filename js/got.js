@@ -16,20 +16,32 @@ const gotCharacters = {
   },
   setData(userData) {
     this.data = JSON.parse(userData);
-    // console.log(this.data);
     this.showAll();
   },
   showAll() {
-    let pictures = '';
+    this.arrangingByName();
+    let characters = '';
     for (let i = 0; i < this.data.length; i += 1) {
       if (!this.data[i].dead && this.data[i].name !== 'Ned Stark') {
-        pictures += `<div class="pictures">
+        characters += `<div class="characters">
                     <img src="${this.data[i].portrait}" alt="${this.data[i].name}">
                     <div>${this.data[i].name}</div>
                     </div>`;
       }
-      document.querySelector('.characters').innerHTML = pictures;
+      document.querySelector('.listOfCharacters').innerHTML = characters;
     }
+  },
+
+  arrangingByName() {
+    this.data.sort((first, second) => {
+      if (first.name.toLowerCase() > second.name.toLowerCase()) {
+        return 1;
+      }
+      if (first.name.toLowerCase() < second.name.toLowerCase()) {
+        return -1;
+      }
+      return 0;
+    });
   },
 };
 

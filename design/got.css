@@ -13,7 +13,7 @@ body {
     font-family: myGoTFont;
 }
 
-.characters {
+.listOfCharacters {
     background-image: url(/assets/site/mapblue.jpg);
     background-repeat: no-repeat;
     background-size: cover;
@@ -22,7 +22,7 @@ body {
     justify-content: space-evenly;
 }
 
-.pictures {
+.characters {
     float: left;
     text-align: center;
     height: 14vh;
