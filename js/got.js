@@ -65,5 +65,24 @@ const gotCharacters = {
     }
     return '';
   },
+  searchingForCharacter() {
+    const searchedCharacter = document.querySelector('#searchBox').value;
+
+    let i = 0;
+    while (i < this.data.length && searchedCharacter.toLowerCase() !== this.data[i].name.toLowerCase()) {
+      i += 1;
+    }
+    if (i < this.data.length) {
+      document.querySelector('.found').innerHTML = `<div>
+        <img src="${this.data[i].picture}" alt="${this.data[i].name}" class="picture">
+        <div class="name">${this.data[i].name}${this.houseOfCharacter(this.data[i])}</div>
+        <div class="bio">${this.data[i].bio}</div>
+        </div>`;
+      document.querySelector('#searchBox').value = '';
+    } else {
+      alert('Character not found');
+      document.querySelector('#searchBox').value = '';
+    }
+  },
 };
 gotCharacters.init();

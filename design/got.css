@@ -17,18 +17,18 @@ body {
     background-image: url(/assets/site/mapblue.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    width: 80vw;
     height: 100vh;
     justify-content: space-evenly;
+    width: 80vw;
 }
 
 .characters {
     float: left;
-    text-align: center;
-    height: 14vh;
-    width: 9vw;
-    margin: 5px;
     font-size: 6px;
+    height: 14vh;
+    margin: 5px;
+    text-align: center;
+    width: 9vw;
 }
 
 img {
@@ -38,29 +38,28 @@ img {
 
 .search {
     background-color: #555;
-    width: 20vw;
     height: 100vh;
+    width: 20vw;
 }
 
 .title {
-    font-size: 15px;
     color: #fff;
-    text-align: center;
+    font-size: 15px;
     padding: 20px;
+    text-align: center;
 }
 
 .found {
-    width: 18vw;
+    color: #fff;
+    font-family: Arial, Helvetica;
     height: 60vh;
     margin: 20px;
-    font-family: Arial, Helvetica;
-    color: #fff;
+    width: 18vw;
 }
 
 .picture {
     height: 100%;
     width: 100%;
-
 }
 
 .name {
@@ -70,13 +69,19 @@ img {
 
 .ikon {
     height: 100%;
-    width: 10%;
     position: absolute;
     right: 0;
-
+    width: 10%;
 }
 
 .bio {
     font-size: 12px;
     overflow: auto;
+}
+
+#searchBox {
+    border-radius: 2px;
+    position: absolute;
+    bottom: 20px;
+    right: 10px;
 }
